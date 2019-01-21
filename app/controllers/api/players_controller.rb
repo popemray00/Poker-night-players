@@ -1,7 +1,9 @@
 class Api::PlayersController < ApplicationController 
 
+    before_action :search_player, only: [:show, :update, :destroy]
+
     def index
-        @players = Players.all
+        @players = Player.all
         render json: @players, status: 200
     end
 
