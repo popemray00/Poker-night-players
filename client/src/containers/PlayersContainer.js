@@ -3,7 +3,7 @@ import React from 'react';
 class PlayersContainer extends Component {
 
     render() {
-        return()
+        return();
     }
 }
 

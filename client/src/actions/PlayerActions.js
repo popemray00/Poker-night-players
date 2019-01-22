@@ -1,3 +1,5 @@
+import {resetPlayerForm} from './PlayersFormActions'; 
+
 const API_URL = 'http://localhost:3001/api';
 
 const setPlayers = players => {
@@ -30,3 +32,28 @@ const editPlayer = player => {
 
 //^^^^^Action Creators^^^^^^^
 
+
+export const getPlayers = () => {
+    return (dispatch => {
+        return fetch(`${API_URL}/players`)
+        .then(response => response.json())
+        .then(players => dispatch(setPlayers(players)))
+    })
+}
+
+export const createPlayers = player => {
+    return dispatch => {
+        return fetch(`${API_URL}/players`, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ player: player})
+        })
+        .then(response => response.json())
+        .then(player => {
+            dispatch(addPlayer(player))
+            dispatch(resetPlayerForm())
+        })
+    }
+}
