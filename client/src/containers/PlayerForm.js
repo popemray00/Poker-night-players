@@ -6,6 +6,19 @@ import { createPlayer } from '../actions/PlayerActions';
 
 class PlayerForm extends Component {
 
+    handleOnChange = e => {
+        const {name, value } = e.target;
+        const currentFormInfo = Object.assign({}, this.props.PlayerFormInfoReducer, {
+            [name]: value
+        })
+        this.props.updatePlayerFormInfo(currentFormInfo)
+    }
+
+    handleOnSubmit = e => {
+        e.preventDefault()
+        this.props.createPlayer(this.props.PlayerFormInfoReducer)
+    }
+
     render() {
         const { name, age, img_url, fav_hand } = this.props.PlayerFormInfoReducer;
 
@@ -17,39 +30,41 @@ class PlayerForm extends Component {
                     <div>
                         <label htmlFor="name">Name:</label>
                         <input
-                            type=""
-                            onChange={this.handleChange}
-                            name=""
-                            value={}
+                            type="text"
+                            onChange={this.handleOnChange}
+                            name="name"
+                            value={name}
                         />
                     </div>
                     <div>
                         <label htmlFor="age">Age:</label>
                         <input
-                            type=""
-                            onChange={this.handleChange}
-                            name=""
-                            value={}
+                            type="number"
+                            onChange={this.handleOnChange}
+                            name="age"
+                            value={age}
                         />
                     </div>
                     <div>
                         <label htmlFor="img_url">Image:</label>
                         <input
-                            type=""
-                            onChange={this.handleChange}
-                            name=""
-                            value={}
+                            type="text"
+                            onChange={this.handleOnChange}
+                            name="img_url"
+                            value={img_url}
                         />
                     </div>
                     <div>
                         <label htmlFor="fav_hand">Favorite Hand:</label>
                         <input
-                            type=""
-                            onChange={this.handleChange}
-                            name=""
-                            value={}
+                            type="text"
+                            onChange={this.handleOnChange}
+                            name="fav_hand"
+                            value={fav_hand}
                         />
                     </div>
+
+                    <button type="submit">Add Player</button>
                 </form>
             </div>
         )
