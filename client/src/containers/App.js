@@ -4,6 +4,7 @@ import './App.css';
 import Home from './Home';
 import Player from '../components/Player';
 import NavBar from './Navbar';
+import PlayersContainer from './PlayersContainer';
 
 class App extends Component {
   render() {
@@ -14,6 +15,7 @@ class App extends Component {
             <NavBar/>
             <Switch>
               <Route exact path='/' component={Home}/>
+              <Route exact path='/players' component={PlayersContainer} />
               <Route exact path='/players/:id' component={Player} />
             </Switch>
           </div>
