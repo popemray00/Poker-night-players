@@ -4,7 +4,7 @@ const API_URL = 'http://localhost:3001/api';
 
 const setPlayers = players => {
     return {
-        type: 'GET_PLAYERS_INFO',
+        type: 'GET_PLAYER_INFO',
         players
     }
 }
@@ -18,14 +18,14 @@ const addPlayer = player => {
 
 const deletePlayer = id => {
     return {
-        type: 'DELETE_PLAYERS_INFO',
+        type: 'DELETE_PLAYER_INFO',
         id
     }
 }
 
 const editPlayer = player => {
     return {
-        type: 'EDIT_PLAYERS_INFO',
+        type: 'EDIT_PLAYER_INFO',
         player
     }
 }
