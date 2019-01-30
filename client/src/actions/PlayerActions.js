@@ -1,4 +1,4 @@
-import {resetPlayerForm} from './PlayersFormActions'; 
+import {resetPlayerForm} from './PlayerFormAction'; 
 
 const API_URL = 'http://localhost:3001/api';
 
@@ -23,12 +23,6 @@ const deletePlayer = id => {
     }
 }
 
-const editPlayer = player => {
-    return {
-        type: 'EDIT_PLAYER_INFO',
-        player
-    }
-}
 
 //^^^^^Action Creators^^^^^^^
 
@@ -60,7 +54,7 @@ export const createPlayers = player => {
 
 export const destroyPlayer = id => {
     return dispatch => {
-        return fetch(`${API_URL}/players/${id}`, {
+        return fetch(`${API_URL}/players/` + id, {
             method: 'DELETE',
             headers: {'Content-Type': 'application/json'},
         })
@@ -69,22 +63,4 @@ export const destroyPlayer = id => {
         })
     }
 }
-
-export const updatePlayer = (id, player) => {
-    return dispatch => {
-      return fetch(`${API_URL}/players/${id}`,{
-          method: 'PATCH',
-          headers: {
-              "Content-Type": "application/json"
-          },
-          body: JSON.stringify({player: player})
-      })
-      .then(response => response.json())
-      .then(player => {
-          dispatch(editPlayer(player))
-          dispatch(resetPlayerForm())
-      })
-    }
-  }
-
-
+//^^^^^^^^^^^^^^^^^^^^^^^Async Actions^^^^^^^^^^^^^^^^^^^^^^^

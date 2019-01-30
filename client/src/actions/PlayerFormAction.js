@@ -13,7 +13,7 @@ export const resetPlayerForm = () => {
 
 export const preFillForm = data => {
     return {
-        type: 'PRE_FILL_DATA',
+        type: 'PREFILL_FORM',
         payload: data
     }
 }

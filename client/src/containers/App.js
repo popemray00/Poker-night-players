@@ -3,8 +3,9 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
 import Home from './Home';
 import Player from '../components/Player';
-import NavBar from './Navbar';
 import PlayersContainer from './PlayersContainer';
+import NavBar from './Navbar';
+
 
 class App extends Component {
   render() {

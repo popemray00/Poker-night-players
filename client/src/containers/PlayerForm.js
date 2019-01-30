@@ -1,13 +1,13 @@
-import React, {component} from 'react';
+import React, {Component} from 'react';
 import { connect } from 'react-redux';
 
-import { updatePlayerFormInfo } from '../actions.PlayerFormAction';
-import { createPlayer } from '../actions/PlayerActions';
+import { updatePlayerFormInfo } from '../actions/PlayerFormAction';
+import { createPlayers } from '../actions/PlayerActions';
 
 class PlayerForm extends Component {
 
     handleOnChange = e => {
-        const {name, value } = e.target;
+        const { name, value } = e.target;
         const currentFormInfo = Object.assign({}, this.props.PlayerFormInfoReducer, {
             [name]: value
         })
@@ -16,7 +16,7 @@ class PlayerForm extends Component {
 
     handleOnSubmit = e => {
         e.preventDefault()
-        this.props.createPlayer(this.props.PlayerFormInfoReducer)
+        this.props.createPlayers(this.props.PlayerFormInfoReducer)
     }
 
     render() {
@@ -26,7 +26,7 @@ class PlayerForm extends Component {
             <div className='form'>
                 <h2>Add a player to your Poker night!</h2>
                 
-                <form onsubmit={this.handleOnSubmit}>
+                <form onSubmit={this.handleOnSubmit}>
                     <div>
                         <label htmlFor="name">Name:</label>
                         <input
@@ -70,3 +70,9 @@ class PlayerForm extends Component {
         )
     }
 }
+
+const mapStateToProps = state => {
+    return { PlayerFormInfoReducer: state.PlayerFormInfoReducer }
+  }
+  
+  export default connect(mapStateToProps, {updatePlayerFormInfo, createPlayers})(PlayerForm);
