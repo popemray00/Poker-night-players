@@ -1,26 +1,26 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 
-import { updatePlayerFormInfo } from '../actions/PlayerFormAction';
-import { createPlayers } from '../actions/PlayerActions';
+import { updateCommentForm } from '../actions/CommentFormActions';
+import { createComment } from '../actions/CommentActions';
 
-class PlayerForm extends Component {
+class CommentForm extends Component {
 
     handleOnChange = e => {
         const { name, value } = e.target;
-        const currentFormInfo = Object.assign({}, this.props.PlayerFormInfoReducer, {
+        const currentFormInfo = Object.assign({}, this.props.CommentsFormReducer, {
             [name]: value
         })
-        this.props.updatePlayerFormInfo(currentFormInfo)
+        this.props.updateCommentForm(currentFormInfo)
     }
 
     handleOnSubmit = e => {
         e.preventDefault()
-        this.props.createComments(this.props.PlayerFormInfoReducer)
+        this.props.createComment(this.props.CommentsFormReducer)
     }
 
     render() {
-        const { content } = this.props.CommentFormReducer;
+        const { content } = this.props.CommentsFormReducer;
 
         return(
             <div className='comment-form'>
@@ -46,7 +46,7 @@ class PlayerForm extends Component {
 }
 
 const mapStateToProps = state => {
-    return { PlayerFormInfoReducer: state.PlayerFormInfoReducer }
+    return { CommentsFormReducer: state.CommentsFormReducer }
   }
   
-  export default connect(mapStateToProps, {updatePlayerFormInfo, createPlayers})(PlayerForm);
+  export default connect(mapStateToProps, {updateCommentForm, createComment})(CommentForm);

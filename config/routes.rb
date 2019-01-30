@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  resources :comments
   namespace :api do
     resources :players
+  end
+
+  namespace :api do
+    resources :comments
   end
 end

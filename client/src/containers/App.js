@@ -4,6 +4,8 @@ import './App.css';
 import Home from './Home';
 import Player from '../components/Player';
 import PlayersContainer from './PlayersContainer';
+import Comments from './Comments';
+import Comment from '../components/Comment'
 import NavBar from './Navbar';
 
 
@@ -18,6 +20,7 @@ class App extends Component {
               <Route exact path='/' component={Home}/>
               <Route exact path='/players' component={PlayersContainer} />
               <Route exact path='/players/:id' component={Player} />
+              <Route exact path='/comments' component={Comments} />
             </Switch>
           </div>
         </Router>  
