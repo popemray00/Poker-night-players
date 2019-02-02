@@ -11,10 +11,10 @@ class Api::PlayersController < ApplicationController
 
     def create
         @player = Player.new(player_params)
-        if player.save
-            render json: player, status: 201
+        if @player.save
+            render json: @player, status: 201
         else
-            render json: {message: player.errors }, status: 400
+            render json: {message: @player.errors }, status: 400
         end
     end
 
@@ -26,7 +26,7 @@ class Api::PlayersController < ApplicationController
         if @player.update(player_params)
             render json: @player
         else
-            render json: {message: player.errors }, status: 400
+            render json: {message: @player.errors }, status: 400
         end
     end
 

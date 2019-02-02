@@ -4,6 +4,7 @@ import PlayerForm from './PlayerForm'
 import Player from '../components/Player';
 import { getPlayers, destroyPlayer } from '../actions/PlayerActions';
 import { preFillForm } from '../actions/PlayerFormAction'
+import './PlayersContainer.css'
 
 class PlayersContainer extends Component {
 
@@ -13,13 +14,14 @@ class PlayersContainer extends Component {
 
     render() {
         return(
-            <div className='players-container'>
-                <div className='App-header'>
+            <div className='Players-Container'>
                 <h1>Poker Players</h1>
                 <PlayerForm />
-                {this.props.players.map(player => <Player key={player.id} player={player} destroyPlayer={this.props.destroyPlayer} preFillForm={this.props.preFillForm}/>)}
-                <div>{this.props.children}</div>
+                <div className='player-card'>
+                {this.props.players.map(player => <Player key={player.id} player={player} destroyPlayer={this.props.destroyPlayer} />)}
                 </div>
+                <div>{this.props.children}</div>
+                {console.log(this.props.players)}
             </div>
         );
     }

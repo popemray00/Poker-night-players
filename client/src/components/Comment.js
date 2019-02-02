@@ -1,14 +1,15 @@
 import React from 'react';
 
-const Comment = props => {
+const Comments = props => {
     return (
         <div>
             <div key={props.comment.id} className='comment-info'>
                 <h2>{props.comment.content}</h2>
-                <button onClick={ () => props.destroycomment(props.comment.id)}>DELETE comment</button>
+                {console.log(props)}
+                <button onClick={ () => props.destroyComment(props.comment.id)}>DELETE COMMENT</button>
             </div>
         </div>
     )
 }
 
-export default Comment;
+export default Comments;

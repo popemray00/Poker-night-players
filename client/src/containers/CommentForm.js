@@ -8,10 +8,10 @@ class CommentForm extends Component {
 
     handleOnChange = e => {
         const { name, value } = e.target;
-        const currentFormInfo = Object.assign({}, this.props.CommentsFormReducer, {
+        const currentFormData = Object.assign({}, this.props.CommentsFormReducer, {
             [name]: value
         })
-        this.props.updateCommentForm(currentFormInfo)
+        this.props.updateCommentForm(currentFormData)
     }
 
     handleOnSubmit = e => {
@@ -28,7 +28,7 @@ class CommentForm extends Component {
                 
                 <form onSubmit={this.handleOnSubmit}>
                     <div>
-                        <label htmlFor="content">Comment:</label>
+                        <label htmlFor="comment">Comment:</label>
                         <input
                             type="text"
                             onChange={this.handleOnChange}

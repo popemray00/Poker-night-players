@@ -27,11 +27,12 @@ const deleteComment = id => {
 //^^^^^Action Creators^^^^^^^
 
 
-export const getcomments = () => {
+export const getComments = () => {
     return (dispatch => {
         return fetch(`${API_URL}/comments`)
         .then(response => response.json())
         .then(comments => dispatch(setComments(comments)))
+        .catch(error => console.log(error))
     })
 }
 

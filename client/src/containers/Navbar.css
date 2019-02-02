@@ -1,0 +1,17 @@
+.Nav-link {
+    font-size: 40px;
+    padding: 1%;
+    color: black;
+    text-decoration: none;
+
+}
+
+.Nav-link:hover {
+    color: green;
+}
+
+.Nav-bar {
+    background-color: white;
+    text-align: right; 
+}
+

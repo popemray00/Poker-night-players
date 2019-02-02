@@ -1,0 +1,11 @@
+.comment-section {
+    background-color: aquamarine;
+}
+
+.comment-info {
+    border-bottom: 6px solid black;
+}
+
+.comments-container {
+    border-top: 6px dashed black;
+}
