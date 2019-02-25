@@ -1,8 +1,8 @@
 
 
-class Api::PlayersController < ApplicationController 
+class PlayersController < ApplicationController 
 
-    before_action :search_player, only: [:show, :update, :destroy]
+    before_action :search_player, only: [:edit, :show, :update, :destroy]
 
     def index
         @players = Player.all
@@ -41,7 +41,7 @@ class Api::PlayersController < ApplicationController
     private
 
     def search_player
-        @player = Player.find_by(id: params{:id})
+        @player = Player.find(id: params{:id})
     end
 
     def player_params

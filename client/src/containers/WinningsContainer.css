@@ -1,0 +1,16 @@
+.game-winnings h1 {
+    color: green;
+    font-size: 60px;
+}
+
+.game-winnings h2 {
+    font-size: 40px;
+}
+
+.game-winnings h3 {
+    font-size: 30px;
+}
+
+.game-winnings ul li {
+    font-size: 20px;
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import './Home.css';
+
 
 const Home = () => {
     return(
@@ -8,6 +8,8 @@ const Home = () => {
             <h1>Welcome to Poker Night!</h1>
             <p> See who's playing in the Players tab!</p>
             <p> Look at comments in the Comments tab!</p>
+            <p> View Game details with the Game-Info link!</p>
+            <p> See how much $$$ you can win with the Winnings tab!</p>
         </div>
         </div>
         

@@ -1,6 +1,6 @@
 import {resetCommentForm} from './CommentFormActions'; 
 
-const API_URL = 'http://localhost:3001/api';
+const API_URL = 'http://localhost:3001';
 
 const setComments = comments => {
     return {
@@ -16,12 +16,7 @@ const addComment = comment => {
     }
 }
 
-const deleteComment = id => {
-    return {
-        type: 'DELETE_COMMENT',
-        id
-    }
-}
+
 
 
 //^^^^^Action Creators^^^^^^^
@@ -53,15 +48,5 @@ export const createComment = comment => {
     }
 }
 
-export const destroyComment = id => {
-    return dispatch => {
-        return fetch(`${API_URL}/comments/` + id, {
-            method: 'DELETE',
-            headers: {'Content-Type': 'application/json'},
-        })
-        .then(response => {
-            dispatch(deleteComment(id))
-        })
-    }
-}
+
 //^^^^^^^^^^^^^^^^^^^^^^^Async Actions^^^^^^^^^^^^^^^^^^^^^^^

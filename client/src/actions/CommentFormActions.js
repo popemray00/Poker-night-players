@@ -10,10 +10,3 @@ export const resetCommentForm = () => {
         type: 'RESET_COMMENT_FORM'
     }
 }
-
-export const preFillForm = data => {
-    return {
-        type: 'PREFILL_FORM',
-        payload: data
-    }
-}

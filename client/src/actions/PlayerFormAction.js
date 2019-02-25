@@ -10,10 +10,3 @@ export const resetPlayerForm = () => {
         type: 'RESET_PLAYER_FORM'
     }
 }
-
-export const preFillForm = data => {
-    return {
-        type: 'PREFILL_FORM',
-        payload: data
-    }
-}

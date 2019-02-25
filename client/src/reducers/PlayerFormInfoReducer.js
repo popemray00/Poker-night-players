@@ -3,7 +3,7 @@ const initialState = {
     age: '', 
     img_url: '', 
     fav_hand: '',
-    prefill: {}
+    
   }
   
   export default (state = initialState, action) => {
@@ -15,8 +15,7 @@ const initialState = {
       case 'RESET_PLAYER_FORM':
         return initialState;
   
-       case 'PREFILL_FORM':
-        return { ...state, prefill: action.payload }
+      
       
       default: 
         return state;

@@ -5,7 +5,7 @@ import { updatePlayerFormInfo } from '../actions/PlayerFormAction';
 import { createPlayers } from '../actions/PlayerActions';
 
 class PlayerForm extends Component {
-
+    // updates while typing
     handleOnChange = e => {
         const { name, value } = e.target;
         const currentFormInfo = Object.assign({}, this.props.PlayerFormInfoReducer, {
@@ -13,7 +13,7 @@ class PlayerForm extends Component {
         })
         this.props.updatePlayerFormInfo(currentFormInfo)
     }
-
+    // creates player on submit
     handleOnSubmit = e => {
         e.preventDefault()
         this.props.createPlayers(this.props.PlayerFormInfoReducer)
@@ -46,7 +46,7 @@ class PlayerForm extends Component {
                         />
                     </div>
                     <div>
-                        <label htmlFor="img_url">Image:</label>
+                        <label htmlFor="img_url">Image_URL:</label>
                         <input
                             type="text"
                             onChange={this.handleOnChange}

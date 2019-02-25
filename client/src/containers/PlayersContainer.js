@@ -2,12 +2,11 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import PlayerForm from './PlayerForm'
 import Player from '../components/Player';
-import { getPlayers, destroyPlayer } from '../actions/PlayerActions';
-import { preFillForm } from '../actions/PlayerFormAction'
+import { getPlayers } from '../actions/PlayerActions';
 import './PlayersContainer.css'
 
 class PlayersContainer extends Component {
-
+    // runs after first render method - fetches players
     componentDidMount() {
         this.props.getPlayers()
     }
@@ -18,10 +17,8 @@ class PlayersContainer extends Component {
                 <h1>Poker Players</h1>
                 <PlayerForm />
                 <div className='player-card'>
-                {this.props.players.map(player => <Player key={player.id} player={player} destroyPlayer={this.props.destroyPlayer} />)}
+                {this.props.players.map(player => <Player key={player.id} player={player}/>)}
                 </div>
-                <div>{this.props.children}</div>
-                {console.log(this.props.players)}
             </div>
         );
     }
@@ -29,9 +26,9 @@ class PlayersContainer extends Component {
 
 const mapStateToProps = (state) => {
     return ({
-        players: state.players.players,
-        PlayerFormInfo: state.PlayerFormInfo
+        players: state.players.players
+        
     })
 }
 
-export default connect(mapStateToProps, {getPlayers, destroyPlayer, preFillForm})(PlayersContainer);
+export default connect(mapStateToProps, {getPlayers})(PlayersContainer);

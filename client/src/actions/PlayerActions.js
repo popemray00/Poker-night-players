@@ -1,6 +1,6 @@
 import {resetPlayerForm} from './PlayerFormAction'; 
 
-const API_URL = 'http://localhost:3001/api';
+const API_URL = 'http://localhost:3001';
 
 const setPlayers = players => {
     return {
@@ -16,12 +16,6 @@ const addPlayer = player => {
     }
 }
 
-const deletePlayer = id => {
-    return {
-        type: 'DELETE_PLAYER_INFO',
-        id
-    }
-}
 
 
 //^^^^^Action Creators^^^^^^^
@@ -32,6 +26,7 @@ export const getPlayers = () => {
         return fetch(`${API_URL}/players`)
         .then(response => response.json())
         .then(players => dispatch(setPlayers(players)))
+        .catch(error => console.log(error));
     })
 }
 
@@ -49,18 +44,8 @@ export const createPlayers = player => {
             dispatch(addPlayer(player))
             dispatch(resetPlayerForm())
         })
+        .catch(error => console.log(error));
     }
 }
 
-export const destroyPlayer = id => {
-    return dispatch => {
-        return fetch(`${API_URL}/players/` + id, {
-            method: 'DELETE',
-            headers: {'Content-Type': 'application/json'},
-        })
-        .then(response => {
-            dispatch(deletePlayer(id))
-        })
-    }
-}
 //^^^^^^^^^^^^^^^^^^^^^^^Async Actions^^^^^^^^^^^^^^^^^^^^^^^
