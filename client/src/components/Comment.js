@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Comments = props => {
+const Comment = props => {
     return (
         <div>
             <div key={props.comment.id} className='comment-info'>
@@ -11,4 +11,4 @@ const Comments = props => {
     )
 }
 
-export default Comments;
+export default Comment;

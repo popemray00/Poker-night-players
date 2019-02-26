@@ -16,7 +16,9 @@ class CommentForm extends Component {
 
     handleOnSubmit = e => {
         e.preventDefault()
+        console.log('A')
         this.props.createComment(this.props.CommentsFormReducer)
+        console.log('B')
     }
 
     render() {

@@ -1,16 +1,19 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import Comments from '../components/Comment';
+import Comment from '../components/Comment';
 import CommentForm from './CommentForm'
 import { getComments } from '../actions/CommentActions';
 import './CommentsContainer.css'
+import Button from '../components/CommentButton'
 
 
 class CommentsContainer extends Component {
-
-  componentDidMount() {
+  
+componentDidMount() {
     this.props.getComments()
 }
+
+
 
   render() {
   return(
@@ -20,7 +23,13 @@ class CommentsContainer extends Component {
             <div className='comment-section'>
               <h2>Comments!!!!</h2>
                 <div className='comment'>
-                  {this.props.comments.map(comment =>  <Comments key={comment.id} comment={comment}/>)}
+                
+                  {this.props.comment.map(comment => {
+                  return(
+                  <div>
+                    Likes:<Button/>
+                  <Comment key={comment.id} comment={comment}/>
+                  </div>)})}
                 </div>
             </div>
     </div>
@@ -31,7 +40,7 @@ class CommentsContainer extends Component {
 
 const mapStateToProps = (state) => {
   return ({
-      comments: state.comments.comments,
+      comment: state.comments.comments,
   })
 }
 
