@@ -1,25 +1,24 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+# Poker-Night-Players
 
-* Ruby version
+Poker Night is an app that allows a user to add players to their poker night to keep track of everyone playing and allows other players to leave comments and to see how much money they are able to win!
 
-* System dependencies
+# Poker Night was built using -
 
-* Configuration
+Frontend - 
+1. React.js
+2. Redux
 
-* Database creation
+Backend - 
 
-* Database initialization
+Ruby on Rails
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+# Instructions -
 
-* Deployment instructions
+1. open terminal 
 
-* ...
-# poker-night-players
+2. run npm install
+
+3. run npm start
